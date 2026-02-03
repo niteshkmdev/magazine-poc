@@ -1,0 +1,90 @@
+/* Page base */
+.page {
+  width: 100%;
+  height: 100%;
+  background: #fdfcf7;
+  box-sizing: border-box;
+  padding: 16px;
+  font-family: system-ui, sans-serif;
+    overflow: hidden;          /* 🔑 critical */
+  position: relative;
+}
+
+/* Cover */
+.cover {
+  background: linear-gradient(135deg, #ff1f1f, #c40000);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.cover h1 {
+  font-size: 2.4rem;
+  margin: 0;
+}
+
+/* Back */
+.back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #222;
+  color: #fff;
+}
+
+/* Pokémon page */
+.pokemon-page {
+  background: #fffbe6;
+}
+
+/* Card */
+.pokemon-card {
+  border: 3px solid #333;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 45% 55%;
+  background: #fff;
+}
+
+/* Fake image area */
+.pokemon-image {
+  background: repeating-linear-gradient(
+    45deg,
+    #ddd,
+    #ddd 10px,
+    #eee 10px,
+    #eee 20px
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+/* Info */
+.pokemon-info {
+  padding: 12px;
+}
+
+.pokemon-info h2 {
+  margin: 0 0 6px;
+}
+
+.type {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+}
+
+.desc {
+  font-size: 0.8rem;
+  line-height: 1.4;
+}

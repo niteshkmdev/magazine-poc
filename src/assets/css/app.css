@@ -1,0 +1,124 @@
+/* =====================
+   Reset
+   ===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: radial-gradient(
+      1200px 600px at center,
+      rgba(255, 255, 255, 0.04),
+      transparent
+    ),
+    #0e1a26;
+  overflow: hidden;
+}
+
+/* =====================
+   Root layout
+   ===================== */
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+/* =====================
+   App container
+   ===================== */
+.container {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+/* =====================
+   Demo Home
+   ===================== */
+.demo-home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding: 32px;
+}
+
+.demo-home h1 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #e6edf3;
+  letter-spacing: 0.3px;
+}
+
+/* =====================
+   Demo grid
+   ===================== */
+.demo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  width: min(720px, 100%);
+}
+
+/* =====================
+   Demo cards
+   ===================== */
+.demo-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 18px 20px;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.25),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+
+  transition:
+    transform 120ms ease,
+    box-shadow 120ms ease;
+}
+
+.demo-card h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0e1a26;
+  margin-bottom: 4px;
+}
+
+.demo-card p {
+  font-size: 13px;
+  color: #5f6b76;
+}
+
+.demo-card:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 14px 32px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+/* =====================
+   Back button
+   ===================== */
+.back-btn {
+  align-self: flex-start;
+  margin-bottom: 16px;
+  background: transparent;
+  border: none;
+  color: #9fb2c8;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.back-btn:hover {
+  color: #ffffff;
+}
