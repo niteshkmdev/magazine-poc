@@ -3,7 +3,7 @@ import  { forwardRef } from 'react';
 
 export const ImageCover = forwardRef<HTMLDivElement>((_, ref) => {
   return (
-    <div ref={ref} className="page image-cover">
+ <div ref={ref} className="page image-cover">
       <div className="image-cover-content">
         <h1>Image Book</h1>
         <p>Visual flip-book demo</p>

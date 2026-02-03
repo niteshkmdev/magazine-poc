@@ -13,6 +13,8 @@ const IMAGES = [
   'https://picsum.photos/360/520?random=6',
   'https://picsum.photos/360/520?random=7',
   'https://picsum.photos/360/520?random=8',
+  'https://picsum.photos/360/520?random=9',
+  'https://picsum.photos/360/520?random=10',
 ];
 
 

@@ -8,6 +8,7 @@
   font-family: system-ui, sans-serif;
     overflow: hidden;          /* 🔑 critical */
   position: relative;
+  user-select: none;
 }
 
 /* Cover */
@@ -40,51 +41,126 @@
 
 /* Card */
 .pokemon-card {
-  border: 3px solid #333;
+  border: 3px solid #222;
   height: 100%;
   display: grid;
-  grid-template-rows: 45% 55%;
+  grid-template-rows: 48% 52%;
   background: #fff;
 }
 
-/* Fake image area */
+/* Image section */
 .pokemon-image {
-  background: repeating-linear-gradient(
-    45deg,
-    #ddd,
-    #ddd 10px,
-    #eee 10px,
-    #eee 20px
-  );
+  position: relative;
+  background: radial-gradient(circle at top, #f5f5f5, #ddd);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: bold;
-  font-size: 2rem;
+  overflow: hidden;
+}
+
+.pokemon-image img {
+  max-width: 85%;
+  max-height: 85%;
+  object-fit: contain;
+}
+
+.pokemon-id {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 4px;
 }
 
 /* Info */
 .pokemon-info {
   padding: 12px;
+  display: flex;
+  flex-direction: column;
 }
 
 .pokemon-info h2 {
   margin: 0 0 6px;
+  font-size: 1.2rem;
+}
+
+/* Types */
+.types {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
 }
 
 .type {
+  font-size: 0.7rem;
   font-weight: 600;
-  margin-bottom: 8px;
+  padding: 2px 6px;
+  border-radius: 10px;
+  color: #fff;
+  text-transform: capitalize;
 }
 
+/* Simple type colors */
+.type-fire { background: #e25822; }
+.type-water { background: #3b82f6; }
+.type-grass { background: #16a34a; }
+.type-electric { background: #eab308; color: #222; }
+.type-poison { background: #7c3aed; }
+.type-flying { background: #64748b; }
+.type-bug { background: #65a30d; }
+.type-normal { background: #6b7280; }
+
+/* Stats */
 .stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   margin-bottom: 8px;
+  text-align: center;
 }
 
+.stats div {
+  background: #f3f4f6;
+  padding: 4px 0;
+  border-radius: 4px;
+}
+
+/* Description */
 .desc {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   line-height: 1.4;
+  color: #333;
+}
+
+
+
+.pdf-loading {
+  color: #cbd5e1;
+  font-size: 14px;
+  gap: 12px;
+}
+
+.spinner {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  border-top-color: #ffffff;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===== Error ===== */
+.pdf-error {
+  color: #fca5a5;
+  font-size: 14px;
 }

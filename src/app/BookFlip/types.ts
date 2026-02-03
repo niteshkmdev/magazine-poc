@@ -1,9 +1,10 @@
 export type Pokemon = {
   id: number
   name: string
-  type: 'Fire' | 'Water' | 'Grass' | 'Electric'
+  types: string[]
   hp: number
   attack: number
   defense: number
+  image: string
   desc: string
 }
