@@ -17,12 +17,9 @@ export const PdfPage = forwardRef<HTMLDivElement, PdfPageProps>(
   ({ page, width, height }, ref) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
-    useEffect(() => {
+useEffect(() => {
       const canvas = canvasRef.current;
       if (!canvas) return;
-
-      const ctx = canvas.getContext('2d');
-      if (!ctx) return;
 
       const viewport = page.getViewport({ scale: 1 });
       const scale = Math.min(
@@ -32,11 +29,11 @@ export const PdfPage = forwardRef<HTMLDivElement, PdfPageProps>(
 
       const scaledViewport = page.getViewport({ scale });
 
-      canvas.width = scaledViewport.width;
-      canvas.height = scaledViewport.height;
+      canvas.width = Math.floor(scaledViewport.width);
+      canvas.height = Math.floor(scaledViewport.height);
 
       page.render({
-        canvasContext: ctx,
+        canvas,                 // ✅ REQUIRED in v5
         viewport: scaledViewport,
       });
     }, [page, width, height]);

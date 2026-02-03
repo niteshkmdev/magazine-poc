@@ -21,12 +21,13 @@ export const DEMOS: {
    {
     key: 'image-book',
     title: 'Image Book',
-    description: 'Full-page image flip demo',
+    description: 'Full-page Image flip demo',
     render: () => <ImageBook />,
         },
    {
     key: 'pdf-book',
     title: 'PDF Book',
+        description: 'Full-page PDF flip demo',
     render: () => <PdfBook />,
   },
   
