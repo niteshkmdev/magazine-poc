@@ -2,7 +2,7 @@
 import { FlipBook } from '@/components/FlipBook';
 import { ImagePage } from './components/ImagePage';
 import { ImageBack, ImageCover } from './components/ImagePageCover';
-import { useFlipBookSize } from '../hooks';
+import {  useResponsiveBookSize } from '../hooks';
 
 const IMAGES = [
   'https://picsum.photos/360/520?random=1',
@@ -19,16 +19,21 @@ const IMAGES = [
 
 
 export default function ImageBook() {
-    const { width, height } = useFlipBookSize();
+     const { width, height,sWidth } = useResponsiveBookSize();
+     const isMobile = sWidth < 850;
+    const bookKey = `${width}x${height}x${sWidth}`;
   return (
+<div className="flip-book-fullscreen">
+
     <FlipBook
         width={width}   // spread width
-
-      maxShadowOpacity={0.5}
+      key={bookKey}
+    usePortrait={isMobile}
+      maxShadowOpacity={isMobile ? 0.2 : 0.5}
+      drawShadow={!isMobile}
       height={height}
       size="fixed"
       showCover
-      drawShadow
     >
       <ImageCover  />
       {IMAGES.map((src, i) => (
@@ -36,5 +41,6 @@ export default function ImageBook() {
       ))}
       <ImageBack />
     </FlipBook>
+    </div>
   );
 }

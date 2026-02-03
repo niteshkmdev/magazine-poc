@@ -4,7 +4,7 @@ import * as pdfjs from 'pdfjs-dist';
 import { FlipBook } from '@/components/FlipBook';
 import { PdfPage } from './components/PdfPage';
 import '@/assets/css/pdf.css';
-import { useFlipBookSize } from '../hooks';
+import {  useResponsiveBookSize } from '../hooks';
 import { PdfBack, PdfCover } from './components/PdfConver';
 
 const PDF_URL =
@@ -14,8 +14,9 @@ export default function PdfBook() {
   const [pages, setPages] = useState<pdfjs.PDFPageProxy[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const { width, height } = useFlipBookSize();
-
+const { width, height,sWidth } = useResponsiveBookSize();
+     const isMobile = sWidth < 850;
+    const bookKey = `${width}x${height}x${sWidth}`;
   useEffect(() => {
     let cancelled = false;
 
@@ -73,14 +74,17 @@ export default function PdfBook() {
 
   /* ---------- Actual book ---------- */
   return (
-    <div className="pdf-fullscreen">
+
+    <div className="pdf-fullscreen ">
       <FlipBook
+       key={bookKey}
+    usePortrait={isMobile}
+      maxShadowOpacity={isMobile ? 0.2 : 0.5}
+      drawShadow={!isMobile}
          width={width}
         height={height}
         size="fixed"
         showCover
-        drawShadow
-        maxShadowOpacity={0.5}
       >
         <PdfCover  />
         {pages.map(p => (
