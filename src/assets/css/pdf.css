@@ -47,3 +47,54 @@
   color: #fca5a5;
   font-size: 14px;
 }
+
+
+
+/* ===== PDF Cover ===== */
+/* ===== PDF Cover (separated from background) ===== */
+.pdf-cover {
+  background: linear-gradient(
+    160deg,
+    #1f2a3d,
+    #121b2a
+  );
+
+  display: grid;
+  place-items: center;
+
+  /* separation */
+  border-radius: 6px;
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+
+.pdf-cover-content {
+  text-align: center;
+  color: #e5e7eb;
+}
+
+.pdf-cover h1 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.pdf-cover p {
+  font-size: 13px;
+  opacity: 0.75;
+}
+
+/* ===== PDF Back ===== */
+.pdf-back {
+  background: linear-gradient(160deg, #1e293b, #101827);
+  display: grid;
+  place-items: center;
+}
+
+.pdf-back-content {
+  font-size: 13px;
+  color: #9ca3af;
+}

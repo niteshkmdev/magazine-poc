@@ -3,9 +3,9 @@ import { useEffect, useState } from 'react';
 import * as pdfjs from 'pdfjs-dist';
 import { FlipBook } from '@/components/FlipBook';
 import { PdfPage } from './components/PdfPage';
-import { PageCover } from './components/PageCover';
 import '@/assets/css/pdf.css';
 import { useFlipBookSize } from '../hooks';
+import { PdfBack, PdfCover } from './components/PdfConver';
 
 const PDF_URL =
   'https://mozilla.github.io/pdf.js/web/compressed.tracemonkey-pldi-09.pdf';
@@ -39,6 +39,8 @@ export default function PdfBook() {
           setLoading(false);
         }
       } catch (err) {
+        console.log(err);
+        
         if (!cancelled) {
           setError('Failed to load PDF');
           setLoading(false);
@@ -80,7 +82,7 @@ export default function PdfBook() {
         drawShadow
         maxShadowOpacity={0.5}
       >
-        <PageCover  />
+        <PdfCover  />
         {pages.map(p => (
           <PdfPage
             key={p.pageNumber}
@@ -89,6 +91,7 @@ export default function PdfBook() {
             height={height}
           />
         ))}
+        <PdfBack/>
       </FlipBook>
     </div>
   );
