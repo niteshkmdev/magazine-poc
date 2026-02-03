@@ -122,3 +122,19 @@ body {
 .back-btn:hover {
   color: #ffffff;
 }
+
+
+
+.flip-book-fullscreen {
+  /* width: 100vw;
+  height: 100dvh; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url('/poker-table-7187858.webp');
+  background-image: url('/poker-table-7187858.webp');
+    background-size: cover;        /* fill screen */
+  background-position: center;   /* keep centered */
+  background-repeat: no-repeat;
+
+}

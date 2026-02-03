@@ -70,7 +70,6 @@ export const FlipBook: React.FC<FlipBookProps> = ({
       startZIndex={0}
       className=""
       style={{}}
-
       {...rest}
     >
       {children}

@@ -4,18 +4,17 @@ import type { Pokemon } from './types';
 import { PageBack, PageCover } from './components/PageCover';
 import { PokemonPage } from './components/PokemonPage';
 import { FlipBook } from '@/components/FlipBook';
-import { useFlipBookSize } from '../hooks';
+import {  useResponsiveBookSize } from '../hooks';
 import { fetchPokemon } from './pokemon';
 
-
-
-
-
 const Book: React.FC = () => {
-  const { width, height } = useFlipBookSize();
+  const { width, height,sWidth } = useResponsiveBookSize();
   const [loading,setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
     const [pokemons, setPokemon] = React.useState<Pokemon[]>([])
+    const isMobile = sWidth < 850;
+    const bookKey = `${width}x${height}x${sWidth}`;
+
   const getPok = async () => {
       try {
         setLoading(true);
@@ -46,21 +45,28 @@ const Book: React.FC = () => {
       </div>
     );
   }
+
+  if (!width || !height) return null;
   return (
+<div className="flip-book-fullscreen">
 
     <FlipBook 
-           width={width}
+    key={bookKey}
+    usePortrait={isMobile}
+      width={width}
       height={height}
       size="fixed"
       showCover
-      maxShadowOpacity={0.5}
-      drawShadow 
+        maxShadowOpacity={isMobile ? 0.2 : 0.5}
+
+        drawShadow={!isMobile}
+
     >
       <PageCover />
           {pokemons.map(p => (<PokemonPage key={p.id} pokemon={p} />))}
           <PageBack />
     </FlipBook>
-     
+</div>     
 
       
 

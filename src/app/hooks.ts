@@ -33,3 +33,41 @@ export function useFlipBookSize() {
 
   return size;
 }
+
+
+
+
+
+export function useResponsiveBookSize(maxWidth = 900) {
+  const [size, setSize] = useState({ width: 0, height: 0,sWidth:0,sHeight:0 });
+  useEffect(() => {
+    const update = () => {
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+
+      const availableWidth = Math.min(vw * 0.95, maxWidth);
+      const availableHeight = vh * 0.9;
+
+      let width = availableWidth;
+      let height = width / PAGE_ASPECT;
+
+      if (height > availableHeight) {
+        height = availableHeight;
+        width = height * PAGE_ASPECT;
+      }
+
+      setSize({
+        width: Math.round(width),
+        height: Math.round(height),
+        sHeight: vh,
+        sWidth:vw
+      });
+    };
+
+    update();
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, [maxWidth]);
+
+  return size;
+}
