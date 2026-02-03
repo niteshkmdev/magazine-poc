@@ -2,22 +2,46 @@
 .image-page {
   height: 100%;
   width: 100%;
-  background: #0b1420;
+  background-color: #0b1420 !important;
+  background: #0b1420 !important;
+    padding: 0 !important;
+  margin: 0 !important;
   display: flex;
   flex-direction: column;
+  border:1px solid red;
   align-items: center;
   justify-content: center;
 }
 
-.image-page img {
-  max-width: 90%;
-  max-height: 85%;
-  object-fit: contain;
-  border-radius: 8px;
+.image-el {
+    width: 100% !important;
+  border:1px solid red; 
+  height: 100% Im !important;
+  object-fit: cover;   /* 🔑 full bleed */
+  object-position: center;
+  display: block;
 }
 
 .image-page .caption {
-  margin-top: 8px;
+   position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+
   font-size: 12px;
-  color: #c9d4df;
+  color: #fff;
+  text-align: center;
+
+  background: rgba(0, 0, 0, 0.4);
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+
+.image-page::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.35);
+  pointer-events: none;
 }

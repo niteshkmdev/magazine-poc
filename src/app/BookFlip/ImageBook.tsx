@@ -20,7 +20,8 @@ export default function ImageBook() {
     const { width, height } = useFlipBookSize();
   return (
     <FlipBook
-      width={width}
+        width={width}   // spread width
+
       maxShadowOpacity={0.5}
       height={height}
       size="fixed"

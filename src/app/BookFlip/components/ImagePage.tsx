@@ -8,8 +8,8 @@ type ImagePageProps = {
 export const ImagePage = forwardRef<HTMLDivElement, ImagePageProps>(
   ({ src, title }, ref) => {
     return (
-      <div ref={ref} className="page image-page">
-        <img src={src} alt={title ?? 'demo image'} />
+      <div ref={ref} className="image-page page">
+        <img className='image-el' src={src} alt={title ?? 'demo image'} />
         {title && <div className="caption">{title}</div>}
       </div>
     );
